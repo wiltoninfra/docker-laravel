@@ -1,0 +1,115 @@
+FROM debian:stretch
+
+MAINTAINER Wilton Guilherme - TBF HOST <suporte@tbfhost.com.br>
+
+
+RUN \
+  apt update && \
+  apt install -y \
+  curl \
+  wget \
+  lsb-release \
+  ca-certificates \
+  apache2 \
+  vim \
+  locales \
+  build-essential \
+  libapache2-mod-php7.0 \
+  git
+
+
+RUN \
+  apt update && \
+  apt install -y \
+ 
+php                                       \
+php-all-dev                               \
+php-bcmath                                \
+php-bz2                                   \
+php-cache-lite                            \
+php-calendar                              \
+php-cas                                   \
+php-cgi                                   \
+php-cli                                   \
+php-common                                \
+php-ctype                                 \
+php-curl                                  \
+php-db                                    \
+php-dba                                   \
+php-fpdf                                  \
+php-fpm                                   \
+php-gd                                    \
+php-geoip                                 \
+php-iconv                                 \
+php-imap                                  \
+php-intl                                  \
+php-json                                  \
+php-ldap                                  \
+php-log                                   \
+php-mail                                  \
+php-markdown                              \
+php-mbstring                              \
+php-mcrypt                                \
+php-memcached                             \
+php-mongodb                               \
+php-monolog                               \
+php-mysql                                 \
+php-odbc                                  \
+php-pdo                                   \
+php-pear                                  \
+php-pecl-http                             \
+php-pgsql                                 \
+php-phar                                  \
+php-pspell                                \
+php-psr-log                               \
+php-redis                                 \
+php-simplexml                             \
+php-soap                                  \
+php-sqlite3                               \
+php-ssh2                                  \
+php-swiftmailer                           \
+php-symfony                               \
+php-twig                                  \
+php-xdebug                                \
+php-xml                                   \
+php-xsl                                   \
+php-yaml                                  \
+php-zend-code                             \
+php-zip   
+
+
+## Instalação do Composer
+
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
+    composer global require hirak/prestissimo && \
+    composer global require phpro/grumphp && \
+    wget http://robo.li/robo.phar && \
+    chmod +x robo.phar && mv robo.phar /usr/bin/robo
+
+	
+	
+RUN curl -sL https://deb.nodesource.com/setup_6.x -o nodesource_setup.sh && bash nodesource_setup.sh
+RUN apt-get install  -y   nodejs 
+RUN curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh -o install_nvm.sh && bash install_nvm.sh
+RUN npm install bower -g 
+RUN npm install gulp -g
+RUN composer global require "laravel/installer"
+
+
+RUN 	service apache2 start
+
+
+
+ENV APACHE_RUN_USER www-data
+ENV APACHE_RUN_GROUP www-data
+ENV APACHE_LOG_DIR /var/log/apache2
+ENV APACHE_PID_FILE /var/run/apache2.pid
+ENV APACHE_RUN_DIR /var/run/apache2
+ENV APACHE_LOCK_DIR /var/lock/apache2
+
+CMD ["/usr/sbin/apache2", "-D", "FOREGROUND"]
+
+RUN composer create-project --prefer-dist laravel/laravel /var/www/html/app
+RUN cd /var/www/html/app && composer update && composer install && composer dump
+
+EXPOSE 8081

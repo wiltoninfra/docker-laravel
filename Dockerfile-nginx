@@ -1,0 +1,28 @@
+FROM nginx:latest
+
+MAINTAINER Pascal GAULT <pascal@inrage.fr>
+
+RUN apt-get update && apt-get install  -y \
+    wget                \
+    build-essential 	\
+    git                 \
+    curl                \
+    gcc                 \
+    g++                 \
+    libssl-dev          \
+    make                \
+    nodejs \
+   libnotify-bin 
+    
+	    
+RUN curl -sL https://deb.nodesource.com/setup_6.x -o nodesource_setup.sh && bash nodesource_setup.sh
+
+
+RUN apt-get install  -y   nodejs 
+
+
+RUN curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh -o install_nvm.sh && bash install_nvm.sh	
+RUN npm install bower -g 
+RUN npm install gulp -g
+
+expose 80

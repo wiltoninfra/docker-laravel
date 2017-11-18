@@ -1,0 +1,29 @@
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.23.0.3. Set the 'ServerName' directive globally to suppress this message
+[Fri Aug 18 03:51:46.468865 2017] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.25 (Debian) configured -- resuming normal operations
+[Fri Aug 18 03:51:46.488671 2017] [core:notice] [pid 1] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.29.0.3. Set the 'ServerName' directive globally to suppress this message
+[Sat Sep 02 06:30:17.988483 2017] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.25 (Debian) configured -- resuming normal operations
+[Sat Sep 02 06:30:17.990889 2017] [core:notice] [pid 1] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Sat Sep 02 06:30:28.808322 2017] [:error] [pid 7] [client 192.168.99.1:51152] PHP Warning:  require(/var/www/html/laravel/public/../vendor/autoload.php): failed to open stream: No such file or directory in /var/www/html/laravel/public/index.php on line 24
+[Sat Sep 02 06:30:28.808380 2017] [:error] [pid 7] [client 192.168.99.1:51152] PHP Fatal error:  require(): Failed opening required '/var/www/html/laravel/public/../vendor/autoload.php' (include_path='.:/usr/share/php') in /var/www/html/laravel/public/index.php on line 24
+[Sat Sep 02 06:30:31.576051 2017] [:error] [pid 9] [client 192.168.99.1:51153] PHP Warning:  require(/var/www/html/laravel/public/../vendor/autoload.php): failed to open stream: No such file or directory in /var/www/html/laravel/public/index.php on line 24
+[Sat Sep 02 06:30:31.576122 2017] [:error] [pid 9] [client 192.168.99.1:51153] PHP Fatal error:  require(): Failed opening required '/var/www/html/laravel/public/../vendor/autoload.php' (include_path='.:/usr/share/php') in /var/www/html/laravel/public/index.php on line 24
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.29.0.2. Set the 'ServerName' directive globally to suppress this message
+[Sun Sep 03 01:44:20.296159 2017] [core:warn] [pid 1] AH00098: pid file /var/run/apache2.pid overwritten -- Unclean shutdown of previous Apache run?
+[Sun Sep 03 01:44:20.298034 2017] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.25 (Debian) configured -- resuming normal operations
+[Sun Sep 03 01:44:20.298316 2017] [core:notice] [pid 1] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Sun Sep 03 01:44:22.315416 2017] [mpm_prefork:notice] [pid 1] AH00169: caught SIGTERM, shutting down
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.29.0.3. Set the 'ServerName' directive globally to suppress this message
+[Sun Sep 03 01:44:25.113347 2017] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.25 (Debian) configured -- resuming normal operations
+[Sun Sep 03 01:44:25.114161 2017] [core:notice] [pid 1] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.29.0.4. Set the 'ServerName' directive globally to suppress this message
+[Sun Sep 03 16:12:42.430637 2017] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.25 (Debian) configured -- resuming normal operations
+[Sun Sep 03 16:12:42.431760 2017] [core:notice] [pid 1] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.29.0.3. Set the 'ServerName' directive globally to suppress this message
+[Sun Sep 03 21:44:36.273073 2017] [core:warn] [pid 1] AH00098: pid file /var/run/apache2.pid overwritten -- Unclean shutdown of previous Apache run?
+[Sun Sep 03 21:44:36.278094 2017] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.25 (Debian) configured -- resuming normal operations
+[Sun Sep 03 21:44:36.278170 2017] [core:notice] [pid 1] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Sun Sep 03 21:44:37.510135 2017] [mpm_prefork:notice] [pid 1] AH00169: caught SIGTERM, shutting down
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.29.0.3. Set the 'ServerName' directive globally to suppress this message
+[Sun Sep 03 21:44:50.806331 2017] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.25 (Debian) configured -- resuming normal operations
+[Sun Sep 03 21:44:50.807299 2017] [core:notice] [pid 1] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'

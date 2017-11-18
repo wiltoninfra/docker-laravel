@@ -1,0 +1,81 @@
+version: '3.2'
+services:
+#- Serviço Banco de Dados
+    mysql:                                      
+      build: 
+        context: .
+        dockerfile: Dockerfile-mysql           
+      container_name: mysql
+      environment:
+        - MYSQL_ROOT_PASSWORD=123456
+        - MYSQL_PASSWORD=123456
+        - MYSQL_DATABASE=database01
+        - MYSQL_USER=db_user
+      ports:
+        - "3306:3306"
+      volumes:
+        - "./db:/var/lib/mysql"
+#- Serviço Gerenciamento Banco de Dados PHP-MYADMIN      
+    phpmyadmin:
+      container_name: phpmyadmin
+      image: phpmyadmin/phpmyadmin
+      links:
+         - mysql:mysql
+      environment:
+        - PMA_ARBITRARY=1
+      restart: always
+      ports:
+       - "8080:80"
+#- Serviço de Cache de Memória       
+    redis:
+      container_name: redis
+      image: redis:alpine
+      restart: always
+      ports:
+       - "6379:6379"
+#- Serviço Web Server (Nginx)         
+    web:
+      image: nginx:latest
+      container_name: web
+      links:
+        - mysql:mysql
+        - redis:redis
+        - php:php
+        - mongodb:mongodb
+        #- rabbitmq:rabbitmq
+      restart: always
+      ports:
+       - "80:80"
+      volumes:
+       - "./dev:/var/www/html/"
+       - "./infra/nginx/conf.d:/etc/nginx/conf.d"
+       - "./infra/nginx/conf.d:/etc/nginx/conf.d"
+#- Serviço MongoDB NoSQL
+    mongodb:
+      build: 
+        context: .
+        dockerfile: Dockerfile-mongodb
+      container_name: mongodb
+      ports:
+       - "27017:27017"
+      restart: always
+#- Serviço de PHP-FPM 7
+    php:
+      build: 
+        context: .
+        dockerfile: Dockerfile-phpfpm
+      container_name: php    
+      volumes:
+       - "./dev:/var/www/html/"
+       - "./infra/php/php.ini:/usr/local/etc/php/php.ini"
+      ports:
+       - "9000:9000"
+#- Console de Comandos "artisan", "composer", "curl", "gulp", "bower" inclui serviço nodejs portas não configuradas.       
+    comandos:
+      build: 
+        context: .
+        dockerfile: Dockerfile-comandos
+      container_name: comandos  
+      volumes:
+       - "./dev:/var/www/html/"
+      restart: always 
