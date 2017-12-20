@@ -80,13 +80,7 @@ php-zip
 
 ## Instalação do Composer
 
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
-    composer global require hirak/prestissimo && \
-    composer global require phpro/grumphp && \
-    wget http://robo.li/robo.phar && \
-    chmod +x robo.phar && mv robo.phar /usr/bin/robo
-
-	
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer	
 	
 RUN curl -sL https://deb.nodesource.com/setup_6.x -o nodesource_setup.sh && bash nodesource_setup.sh
 RUN apt-get install  -y   nodejs 

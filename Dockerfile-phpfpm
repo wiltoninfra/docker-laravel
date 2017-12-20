@@ -22,15 +22,11 @@ RUN echo 'opcache.fast_shutdown=1' >> /usr/local/etc/php/conf.d/opcache.conf
 RUN apt-get update && apt-get install -y \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
-        libpng12-dev \
 		libcurl4-gnutls-dev \
 		libxml2-dev \
 		libbz2-dev \
 		re2c \
 		libpng++-dev \
-        libpng3 \
-        libjpeg-dev \
-        libvpx-dev \
         zlib1g-dev \
         libgd-dev \
         libssl-dev \
